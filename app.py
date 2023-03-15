@@ -12,8 +12,12 @@ class ResponseModel(BaseModel):
     translation: str
 
 def translate_text(text, target_language):
+    print("This is the text to be translated", text)
+    print("This is the target_language", target_language)
     translator = Translator()
     translation = translator.translate(text, dest=target_language)
+    
+    print("this is translation output: ", translation.text)
     return translation.text
 
 def get_language_code(language):
