@@ -52,7 +52,7 @@ def extract_and_translate(request: RequestModel) -> ResponseModel:
         return {"translation": "Error: Language not supported."}
 
     translation = translate_text(text, language_code)
-        print("HIHIHIHIHIHIHI_2: ", translation)
+    print("HIHIHIHIHIHIHI_2: ", translation)
     
     if not translation:
         return {"translation": "Error: Translation failed."}
