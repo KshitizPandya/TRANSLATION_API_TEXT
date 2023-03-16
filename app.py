@@ -42,7 +42,7 @@ def get_language_code(language):
     return language_code
 
 @app.post("/translate")
-def extract_and_translate(request: RequestModel) -> ResponseModel:
+def translate(request: RequestModel) -> ResponseModel:
     text = request.text
     target_language = request.language.lower()
 
