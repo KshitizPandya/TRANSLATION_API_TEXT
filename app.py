@@ -34,12 +34,14 @@ def get_language_code(language):
     foreign_language_codes = {"french": "fr", "german": "de", "italian": "it", "japanese": "ja", "korean": "ko",
                               "portuguese": "pt", "russian": "ru", "spanish": "es", "turkish": "tr"}
 
-    language_code = indic_language_codes.get(language.lower())
-    if not language_code:
-        language_code = foreign_language_codes.get(language.lower())
-    if not language_code:
-        print(f"Error: Language {language} not supported.")
-    return language_code
+    try:
+        return indic_language_codes[language]
+    except KeyError:
+        try:
+            return foreign_language_codes[language]
+        except KeyError:
+            print(f"Error: Language {language} not supported.")
+            return None
 
 @app.post("/translate")
 def translate(request: RequestModel) -> ResponseModel:
