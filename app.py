@@ -17,6 +17,7 @@ def translate_text(text, target_language):
     translator = Translator()
     try:
         translation = translator.translate(text, dest=target_language)
+        print("THIS IS WHERE WE ARE PRINITING TRANSLATION: ", translation.text)
 
     except Exception as e:
         print(f"Error: {e}")
