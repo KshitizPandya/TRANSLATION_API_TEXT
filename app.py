@@ -45,15 +45,16 @@ def get_language_code(language):
 
 @app.post("/translate")
 def translate(request: RequestModel) -> ResponseModel:
-    text = request.text
+    input_text = request.text
     target_language = request.language.lower()
 
     language_code = get_language_code(target_language)
+    print(language_code)
 
     if not language_code:
         return {"translation": "Error: Language not supported."}
 
-    translation = translate_text(text, language_code)
+    translation = translate_text(input_text, language_code)
 #     print("HIHIHIHIHIHIHI_2: ", translation)
     
     if not translation:
