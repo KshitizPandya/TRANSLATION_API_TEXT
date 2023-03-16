@@ -5,7 +5,7 @@ from googletrans import Translator
 app = FastAPI()
 
 class RequestModel(BaseModel):
-    text: str
+    text_TBT: str
     language: str
 
 class ResponseModel(BaseModel):
@@ -45,7 +45,7 @@ def get_language_code(language):
 
 @app.post("/translate")
 def translate(request: RequestModel) -> ResponseModel:
-    input_text = request.text
+    input_text = request.text_TBT
     target_language = request.language.lower()
 
     language_code = get_language_code(target_language)
