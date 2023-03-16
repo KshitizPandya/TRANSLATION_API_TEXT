@@ -21,7 +21,7 @@ def translate_text(text, target_language):
 
     except Exception as e:
         print(f"Error: {e}")
-        return None
+        return "translation cannot be performed"
 
     print("HIHIHIHIHIHIHI_1: ", translation.text)
     return translation.text
